@@ -25,8 +25,10 @@ public class Patient {
     @Column(nullable = false, length = 40)
     private String name;
 
+    @Column(nullable = false , length=10)
     private String gender;
 
+    @Column(nullable = false)
     private LocalDate dob;
 
     @Column(unique = true ,  nullable = false)
@@ -38,6 +40,5 @@ public class Patient {
 
     @Enumerated(EnumType.STRING)
     private BloodGroupType bloodGroup;
-
 
 }
