@@ -19,4 +19,8 @@ public class Appointment {
 
     @Column(nullable = false)
     private LocalDate meeting;
+
+    @ManyToOne
+    @JoinColumn(name = "patient_id" , nullable = false)//not null appointment table patient id
+    private Patient patient;
 }

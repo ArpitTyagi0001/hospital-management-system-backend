@@ -7,6 +7,8 @@ import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @Setter
@@ -41,4 +43,6 @@ public class Patient {
     @Enumerated(EnumType.STRING)
     private BloodGroupType bloodGroup;
 
+    @OneToMany(mappedBy = "patient" , cascade = CascadeType.ALL , orphanRemoval = true)
+    private List<Appointment> appointment = new ArrayList<>();
 }
