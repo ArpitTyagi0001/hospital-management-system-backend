@@ -25,4 +25,8 @@ public class Insurance {
 
     @Column(nullable = false)
     private LocalDate validTill;
+
+    @OneToOne
+    @JoinColumn(name = "Patient_id" , nullable = false)
+    private Patient patient;
 }

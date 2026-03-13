@@ -3,6 +3,9 @@ package com.example.HospitalMangement.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
@@ -31,4 +34,7 @@ public class Doctor {
 
     @Column(nullable = false , length = 20)
     private String qualification;
+
+    @OneToMany(mappedBy = "doctor" , cascade = CascadeType.ALL , orphanRemoval = true)
+    private List<Appointment> appointment = new ArrayList<>();
 }

@@ -6,11 +6,11 @@ VALUES
     ('Neha Iver', 'FEMALE', '1992-12-01','neha.iyer@example.com', 'AB_POSITIVE'),
     ('Kabir Singh', 'MALE', '1993-07-11', 'kabir.singh@example.com', 'O_POSITIVE');
 
-INSERT INTO doctor (name , specialization , email)
+INSERT INTO doctor (name, specialization, email, gender, pno, qualification)
 VALUES
-    ('Dr. Rakesh Mehta' , 'Cardiology' , 'rakesh.mehta@example.com'),
-    ('Dr. Sneha Kapoor' ,  'Dermatology' , 'Shena.kapoor@example.com'),
-    ('Dr. Arjun nair' , 'Orthopedics' , 'arjun.nair@example.com');
+    ('Dr. Rakesh Mehta', 'Cardiology', 'rakesh.mehta@example.com', 'Male', '9876543210', 'MBBS'),
+    ('Dr. Sneha Kapoor', 'Dermatology', 'sneha.kapoor@example.com', 'Female', '9876543211', 'MBBS'),
+    ('Dr. Arjun Nair', 'Orthopedics', 'arjun.nair@example.com', 'Male', '9876543212', 'MBBS');
 
 
 INSERT INTO

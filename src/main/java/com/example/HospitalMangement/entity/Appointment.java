@@ -3,6 +3,7 @@ package com.example.HospitalMangement.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import javax.print.Doc;
 import java.time.LocalDate;
 
 
@@ -18,9 +19,16 @@ public class Appointment {
     private Long id;
 
     @Column(nullable = false)
-    private LocalDate meeting;
+    private LocalDate appointment_time;
+
+    @Column(nullable = false , length = 40)
+    private String reason;
 
     @ManyToOne
     @JoinColumn(name = "patient_id" , nullable = false)//not null appointment table patient id
     private Patient patient;
+
+    @ManyToOne
+    @JoinColumn(name = "doctor_id" , nullable = false)
+    private Doctor doctor;
 }
