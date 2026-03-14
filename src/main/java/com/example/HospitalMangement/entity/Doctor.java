@@ -37,4 +37,7 @@ public class Doctor {
 
     @OneToMany(mappedBy = "doctor" , cascade = CascadeType.ALL , orphanRemoval = true)
     private List<Appointment> appointment = new ArrayList<>();
+
+    @ManyToMany(mappedBy = "doctor" , cascade = CascadeType.ALL )
+    private List<Department> departments = new ArrayList<>();
 }

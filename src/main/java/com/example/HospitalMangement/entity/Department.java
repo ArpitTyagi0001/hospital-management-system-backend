@@ -3,6 +3,10 @@ package com.example.HospitalMangement.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import javax.print.Doc;
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Getter
 @Setter
@@ -16,4 +20,8 @@ public class Department {
 
     @Column(nullable = false , length=20)
     private String DeptName;
+
+    @ManyToMany
+    @JoinTable(name = "doctor_id" )
+    private List<Doctor> doctor = new ArrayList<>();
 }
