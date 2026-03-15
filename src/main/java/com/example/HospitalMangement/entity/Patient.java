@@ -8,6 +8,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Getter
@@ -31,7 +32,7 @@ public class Patient {
     private String gender;
 
     @Column(nullable = false)
-    private LocalDate dob;
+    private Date dob;
 
     @Column(unique = true ,  nullable = false)
     private String email;
