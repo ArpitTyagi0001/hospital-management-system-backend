@@ -12,7 +12,6 @@ import java.util.stream.Collectors;
 
 @Service
 public class DoctorService {
-
     @Autowired
     private DoctorRepository doctorRepository;
 
@@ -27,5 +26,21 @@ public class DoctorService {
                 .collect(Collectors.toList());
 
         return doctorDtos;
+    }
+
+    public DoctorDto getDoctorById(Long id) {
+        Doctor doctor = doctorRepository.findById(id).orElseThrow(
+                ()-> new RuntimeException("doctor not found BY Id :" + id)
+        );
+
+        return modelMapper.map(doctor , DoctorDto.class);
+    }
+
+    public DoctorDto addDoctor(DoctorDto doctorDto) {
+        Doctor doctor = modelMapper.map(doctorDto , Doctor.class);
+
+        Doctor SaveDoctor = doctorRepository.save(doctor);
+
+        return modelMapper.map(SaveDoctor  , DoctorDto.class);
     }
 }

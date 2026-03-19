@@ -4,8 +4,7 @@ import com.example.HospitalMangement.dto.DoctorDto;
 import com.example.HospitalMangement.entity.Doctor;
 import com.example.HospitalMangement.service.DoctorService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -18,5 +17,15 @@ public class DoctorContoller {
     @GetMapping("/doctors")
     public List<DoctorDto> getDoctor(){
         return doctorService.getDoctors();
+    }
+
+    @GetMapping("/DoctorById/{id}")
+    public DoctorDto getDoctorById(@PathVariable  Long id){
+        return doctorService.getDoctorById(id);
+    }
+
+    @PostMapping("/addDoctor")
+    public DoctorDto addDoctor(@RequestBody DoctorDto doctorDto){
+        return doctorService.addDoctor(doctorDto);
     }
 }
