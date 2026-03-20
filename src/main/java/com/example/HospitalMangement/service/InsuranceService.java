@@ -6,7 +6,6 @@ import com.example.HospitalMangement.entity.Patient;
 import com.example.HospitalMangement.repository.InsuranceRepository;
 import com.example.HospitalMangement.repository.PatientRepository;
 import jakarta.persistence.EntityNotFoundException;
-import jakarta.persistence.criteria.CriteriaBuilder;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

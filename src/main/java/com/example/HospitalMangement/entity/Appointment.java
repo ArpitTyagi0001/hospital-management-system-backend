@@ -3,7 +3,6 @@ package com.example.HospitalMangement.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
-import javax.print.Doc;
 import java.time.LocalDate;
 
 

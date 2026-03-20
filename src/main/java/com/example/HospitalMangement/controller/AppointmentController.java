@@ -1,7 +1,6 @@
 package com.example.HospitalMangement.controller;
 
 import com.example.HospitalMangement.dto.AppointmentDto;
-import com.example.HospitalMangement.entity.Appointment;
 import com.example.HospitalMangement.service.AppointmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
