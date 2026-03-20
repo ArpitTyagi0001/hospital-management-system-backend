@@ -52,3 +52,11 @@ VALUES
     (4, 1),
     (4, 2),
     (5, 3);
+
+
+INSERT INTO
+        users(username , password)
+VALUES
+    ('Arpit', '$2y$12$BuWmctd/lmp4JhSUpmIgpeWAs3tLvjVl6ZJ0T2T5SSAzGspi3e6xe'),
+    ('kunal', '$2y$12$k.ixWtXckkf49gbl.qphe.z3A55nc6bAlT2wLH9ZmHsCx5ivDGwBS'),
+    ('Ramu', '$2y$12$3e1zyU3tzTHKhtP4M/mgje2Rmwnuq6QU4vY4fVCzMa5o5EmBw5A7u');
