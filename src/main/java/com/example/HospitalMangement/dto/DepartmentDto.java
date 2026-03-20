@@ -11,8 +11,6 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class DepartmentDto {
-    private Long Id;
-    private String deptName;
+    private String DeptName;
     private List<Long> doctorIds;
-    private List<String> doctorNames;
 }

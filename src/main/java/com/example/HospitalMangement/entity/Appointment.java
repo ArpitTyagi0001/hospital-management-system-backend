@@ -19,7 +19,7 @@ public class Appointment {
     private Long id;
 
     @Column(nullable = false)
-    private LocalDate appointment_time;
+    private LocalDate appointmentTime;
 
     @Column(nullable = false , length = 40)
     private String reason;

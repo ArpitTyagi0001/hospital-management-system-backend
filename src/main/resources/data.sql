@@ -22,3 +22,33 @@ VALUES
     ('2025-07-04 14:00:00', 'Follow-up Visit', 1, 1),
     ('2025-07-05 16:15:00', 'Consultation', 1, 4),
     ('2025-07-06 08:30:00','Allergy Treatment', 2, 5);
+
+
+INSERT INTO
+    insurance (company_name, policy_number, valid_till, patient_id)
+VALUES
+    ('LIC India', 'LIC-001-2024', '2027-12-31', 1),
+    ('Star Health', 'STAR-002-2024', '2026-06-30', 2),
+    ('HDFC Ergo', 'HDFC-003-2024', '2028-03-15', 3),
+    ('Bajaj Allianz', 'BAJAJ-004-2024', '2027-08-20', 4),
+    ('New India', 'NIA-005-2024', '2026-11-10', 5);
+
+
+INSERT INTO
+    department (dept_name)
+VALUES
+    ('Cardiology'),
+    ('Dermatology'),
+    ('Orthopedics'),
+    ('General Medicine'),
+    ('Emergency');
+
+INSERT INTO
+    doctor_id (departments_id, doctor_id)
+VALUES
+    (1, 1),
+    (2, 2),
+    (3, 3),
+    (4, 1),
+    (4, 2),
+    (5, 3);

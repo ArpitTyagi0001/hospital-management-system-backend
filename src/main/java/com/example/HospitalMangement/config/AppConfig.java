@@ -8,6 +8,12 @@ import org.springframework.context.annotation.Configuration;
 public class AppConfig {
     @Bean
     public ModelMapper modelMapper(){
-        return new ModelMapper();
+        ModelMapper modelMapper = new ModelMapper();
+
+        // this is used to post request of appointment to ignore the id
+        modelMapper.getConfiguration()
+                .setAmbiguityIgnored(true);
+
+        return modelMapper;
     }
 }

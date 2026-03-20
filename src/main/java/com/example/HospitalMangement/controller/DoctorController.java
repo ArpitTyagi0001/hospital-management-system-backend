@@ -1,7 +1,6 @@
 package com.example.HospitalMangement.controller;
 
 import com.example.HospitalMangement.dto.DoctorDto;
-import com.example.HospitalMangement.entity.Doctor;
 import com.example.HospitalMangement.service.DoctorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -9,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-public class DoctorContoller {
+public class DoctorController {
 
     @Autowired
     private DoctorService doctorService;
