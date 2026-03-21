@@ -54,8 +54,6 @@ public class PatientService {
 
         modelMapper.map(patientDto , patient);
 
-        //set it manually because modelmapper make it null
-        patient.setId(id);
 
         Patient patient1 = patientRepository.save(patient);
 
