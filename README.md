@@ -6,14 +6,14 @@ A production-grade **REST API** built with **Spring Boot**, featuring full CRUD 
 
 ## 🚀 Tech Stack
 
-| Layer     | Technology                          |
-|-----------|-------------------------------------|
-| Backend   | Java, Spring Boot                   |
+| Layer     | Technology                                   |
+|-----------|----------------------------------------------|
+| Backend   | Java, Spring Boot                            |
 | Security  | Spring Security, JWT, OAuth2 (Google/GitHub) |
-| Database  | PostgreSQL                          |
-| ORM       | JPA / Hibernate                     |
-| Mapping   | ModelMapper                         |
-| Tools     | Postman, pgAdmin, Maven, Git        |
+| Database  | PostgreSQL                                   |
+| ORM       | JPA / Hibernate                              |
+| Mapping   | ModelMapper                                  |
+| Tools     | Postman, pgAdmin, Maven, Git                 |
 
 ---
 
@@ -33,10 +33,11 @@ A production-grade **REST API** built with **Spring Boot**, featuring full CRUD 
 
 ## 📁 Project Structure
 
+```
 src/main/java/com/example/HospitalMangement/
 ├── config/
-│   ├── AppConfig.java          → ModelMapper Bean
-│   └── SecurityConfig.java     → JWT + Security config
+│   ├── AppConfig.java              → ModelMapper Bean
+│   └── SecurityConfig.java         → JWT + Security config
 ├── controller/
 │   ├── PatientController.java
 │   ├── DoctorController.java
@@ -74,16 +75,19 @@ src/main/java/com/example/HospitalMangement/
 │   ├── DepartmentRepository.java
 │   └── UsersRepository.java
 └── filter/
-└── JwtFilter.java
+    └── JwtFilter.java
+```
 
 ---
 
 ## 🔗 Entity Relationships
 
+```
 Patient  ──(OneToOne)──►  Insurance
 Patient  ──(OneToMany)──► Appointment
 Doctor   ──(OneToMany)──► Appointment
 Doctor   ──(ManyToMany)── Department
+```
 
 ---
 
@@ -91,60 +95,60 @@ Doctor   ──(ManyToMany)── Department
 
 ### 🔐 Auth
 
-| Method | URL        | Description              | Auth |
-|--------|-----------|--------------------------|------|
-| POST   | /register | Register new user        | ❌ |
-| POST   | /login    | Login → returns JWT      | ❌ |
+| Method | URL        | Description         | Auth |
+|--------|------------|---------------------|------|
+| POST   | /register  | Register new user   | ❌   |
+| POST   | /login     | Login → returns JWT | ❌   |
 
 ---
 
 ### 👤 Patient
 
-| Method | URL                     | Description |
-|--------|------------------------|-------------|
-| GET    | /AllPatient            | Get all patients |
-| GET    | /PatientById/{id}      | Get patient by ID |
-| POST   | /addPatient            | Add new patient |
-| PUT    | /updatePatient/{id}    | Update patient |
-| DELETE | /deletePatient/{id}    | Delete patient |
+| Method | URL                  | Description        |
+|--------|----------------------|--------------------|
+| GET    | /AllPatient          | Get all patients   |
+| GET    | /PatientById/{id}    | Get patient by ID  |
+| POST   | /addPatient          | Add new patient    |
+| PUT    | /updatePatient/{id}  | Update patient     |
+| DELETE | /deletePatient/{id}  | Delete patient     |
 
 ---
 
 ### 👨‍⚕️ Doctor
 
-| Method | URL              | Description |
-|--------|------------------|-------------|
-| GET    | /doctors         | Get all doctors |
-| GET    | /DoctorById/{id} | Get doctor by ID |
-| POST   | /addDoctor       | Add new doctor |
+| Method | URL               | Description       |
+|--------|-------------------|-------------------|
+| GET    | /doctors          | Get all doctors   |
+| GET    | /DoctorById/{id}  | Get doctor by ID  |
+| POST   | /addDoctor        | Add new doctor    |
 
 ---
 
 ### 📅 Appointment
 
-| Method | URL                   | Description |
-|--------|----------------------|-------------|
-| GET    | /AllAppointment      | Get all appointments |
-| GET    | /AppointmentById/{id}| Get appointment by ID |
-| POST   | /AddAppointment      | Book appointment |
+| Method | URL                    | Description             |
+|--------|------------------------|-------------------------|
+| GET    | /AllAppointment        | Get all appointments    |
+| GET    | /AppointmentById/{id}  | Get appointment by ID   |
+| POST   | /AddAppointment        | Book appointment        |
 
 ---
 
 ### 🛡️ Insurance
 
-| Method | URL                  | Description |
-|--------|---------------------|-------------|
-| GET    | /AllInsurance       | Get all insurance |
-| GET    | /InsuranceById/{id} | Get insurance by ID |
-| POST   | /addInsurance       | Add insurance |
+| Method | URL                   | Description          |
+|--------|-----------------------|----------------------|
+| GET    | /AllInsurance         | Get all insurance    |
+| GET    | /InsuranceById/{id}   | Get insurance by ID  |
+| POST   | /addInsurance         | Add insurance        |
 
 ---
 
 ### 🏢 Department
 
-| Method | URL            | Description |
-|--------|---------------|-------------|
-| GET    | /AllDepartment| Get all departments |
+| Method | URL             | Description          |
+|--------|-----------------|----------------------|
+| GET    | /AllDepartment  | Get all departments  |
 
 ---
 
@@ -155,51 +159,84 @@ Doctor   ──(ManyToMany)── Department
 - PostgreSQL
 - Maven
 
----
-
 ### 1. Clone the repository
 
 ```bash
 git clone https://github.com/ArpitTyagi0001/HospitalManagementSystem.git
 cd HospitalManagementSystem
+```
 
+### 2. Configure `application.properties`
+
+```properties
 spring.datasource.url=jdbc:postgresql://localhost:5432/hospitaldb
 spring.datasource.username=your_username
 spring.datasource.password=your_password
 spring.jpa.hibernate.ddl-auto=create
 spring.sql.init.mode=always
 spring.jpa.defer-datasource-initialization=true
+```
 
+### 3. Run the application
+
+```bash
 mvn spring-boot:run
+```
 
+---
+
+## 🔑 Usage Examples
+
+### Register
+```http
 POST http://localhost:8080/register
+Content-Type: application/json
+
 {
   "username": "arpit",
   "password": "1234"
 }
+```
 
+### Login
+```http
 POST http://localhost:8080/login
+Content-Type: application/json
+
 {
   "username": "arpit",
   "password": "1234"
 }
+```
 
+### Authenticated Request
+```http
 GET http://localhost:8080/AllPatient
 Authorization: Bearer <your_token>
+```
 
+---
+
+## 🔐 Auth Flow
+
+```
 Register → Save user (BCrypt)
-↓
+     ↓
 Login → Generate JWT
-↓
-Send JWT in request
-↓
+     ↓
+Send JWT in request header
+     ↓
 JwtFilter validates token
-↓
+     ↓
 Access granted ✅
+```
 
-👨‍💻 Author
+---
 
-Arpit Tyagi
-GitHub: https://github.com/ArpitTyagi0001
-LinkedIn: https://linkedin.com/in/arpit-tyagi0001
-Email: arpittyagi389@gmail.com
+## 👨‍💻 Author
+
+**Arpit Tyagi**
+
+- 🐙 GitHub: [@ArpitTyagi0001](https://github.com/ArpitTyagi0001)
+- 💼 LinkedIn: [arpit-tyagi0001](https://linkedin.com/in/arpit-tyagi0001)
+- 📧 Email: arpittyagi389@gmail.com
