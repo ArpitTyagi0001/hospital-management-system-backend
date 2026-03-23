@@ -1,59 +1,35 @@
-🏥 Hospital Management System
-
-A production-grade REST API built with Spring Boot, featuring full CRUD operations, JPA entity relationships, and secure JWT + OAuth2 authentication.
-
-🚀 Tech Stack
-
-Layer	Technology
-Backend	Java, Spring Boot
-Security	Spring Security, JWT, OAuth2 (Google/GitHub)
-Database	PostgreSQL
-ORM	JPA / Hibernate
-Mapping	ModelMapper
-Tools	Postman, pgAdmin, Maven, Git
-✨ Features
-
-✅ JWT Authentication — Register, Login, Token-based access
-✅ OAuth2 Social Login — Google & GitHub
-✅ Role-Based Access Control — ADMIN & USER roles
-✅ Full CRUD — Patient, Doctor, Appointment, Insurance, Department
-✅ Entity Relationships — OneToOne, ManyToOne, ManyToMany
-✅ DTO Pattern with ModelMapper
-✅ BCrypt Password Encryption
-✅ Stateless Session (STATELESS)
-✅ PostgreSQL with data.sql seeding
-📁 Project Structure
-
-
- 🏥 Hospital Management System
+# 🏥 Hospital Management System
 
 A production-grade **REST API** built with **Spring Boot**, featuring full CRUD operations, JPA entity relationships, and secure **JWT + OAuth2** authentication.
 
+---
 
-🚀 Tech Stack
+## 🚀 Tech Stack
 
-| Layer | Technology |
-|-------|-----------|
-| Backend | Java, Spring Boot |
-| Security | Spring Security, JWT, OAuth2 (Google/GitHub) |
-| Database | PostgreSQL |
-| ORM | JPA / Hibernate |
-| Mapping | ModelMapper |
-| Tools | Postman, pgAdmin, Maven, Git |
+| Layer     | Technology                          |
+|-----------|-------------------------------------|
+| Backend   | Java, Spring Boot                   |
+| Security  | Spring Security, JWT, OAuth2 (Google/GitHub) |
+| Database  | PostgreSQL                          |
+| ORM       | JPA / Hibernate                     |
+| Mapping   | ModelMapper                         |
+| Tools     | Postman, pgAdmin, Maven, Git        |
 
+---
 
-✨ Features
+## ✨ Features
 
-✅ JWT Authentication — Register, Login, Token-based access
-✅ OAuth2 Social Login — Google & GitHub
-✅ Role-Based Access Control — ADMIN & USER roles
-✅ Full CRUD — Patient, Doctor, Appointment, Insurance, Department
-✅ Entity Relationships — OneToOne, ManyToOne, ManyToMany
-✅ DTO Pattern with ModelMapper
-✅ BCrypt Password Encryption
-✅ Stateless Session (STATELESS)
-✅ PostgreSQL with data.sql seeding
+- ✅ JWT Authentication — Register, Login, Token-based access
+- ✅ OAuth2 Social Login — Google & GitHub
+- ✅ Role-Based Access Control — ADMIN & USER roles
+- ✅ Full CRUD — Patient, Doctor, Appointment, Insurance, Department
+- ✅ Entity Relationships — OneToOne, ManyToOne, ManyToMany
+- ✅ DTO Pattern with ModelMapper
+- ✅ BCrypt Password Encryption
+- ✅ Stateless Session (STATELESS)
+- ✅ PostgreSQL with data.sql seeding
 
+---
 
 ## 📁 Project Structure
 
@@ -98,133 +74,95 @@ src/main/java/com/example/HospitalMangement/
 │   ├── DepartmentRepository.java
 │   └── UsersRepository.java
 └── filter/
-    └── JwtFilter.java
+└── JwtFilter.java
 
+---
 
-🔗 Entity Relationships
-
+## 🔗 Entity Relationships
 
 Patient  ──(OneToOne)──►  Insurance
 Patient  ──(OneToMany)──► Appointment
 Doctor   ──(OneToMany)──► Appointment
 Doctor   ──(ManyToMany)── Department
 
-📌 API Endpoints
+---
 
-🔐 Auth
+## 📌 API Endpoints
 
-Method	URL	Description	Auth
-POST	/register	Register new user	❌
-POST	/login	Login → returns JWT token	❌
+### 🔐 Auth
 
-👤 Patient
+| Method | URL        | Description              | Auth |
+|--------|-----------|--------------------------|------|
+| POST   | /register | Register new user        | ❌ |
+| POST   | /login    | Login → returns JWT      | ❌ |
 
-Method	URL	Description
-GET	/AllPatient	Get all patients
-GET	/PatientById/{id}	Get patient by ID
-POST	/addPatient	Add new patient
-PUT	/updatePatient/{id}	Update patient
-DELETE	/deletePatient/{id}	Delete patient
+---
 
-👨‍⚕️ Doctor
+### 👤 Patient
 
-Method	URL	Description
-GET	/doctors	Get all doctors
-GET	/DoctorById/{id}	Get doctor by ID
-POST	/addDoctor	Add new doctor
+| Method | URL                     | Description |
+|--------|------------------------|-------------|
+| GET    | /AllPatient            | Get all patients |
+| GET    | /PatientById/{id}      | Get patient by ID |
+| POST   | /addPatient            | Add new patient |
+| PUT    | /updatePatient/{id}    | Update patient |
+| DELETE | /deletePatient/{id}    | Delete patient |
 
-📅 Appointment
+---
 
-Method	URL	Description
-GET	/AllAppointment	Get all appointments
-GET	/AppointmentById/{id}	Get appointment by ID
-POST	/AddAppointment	Book appointment
+### 👨‍⚕️ Doctor
 
-🛡️ Insurance
+| Method | URL              | Description |
+|--------|------------------|-------------|
+| GET    | /doctors         | Get all doctors |
+| GET    | /DoctorById/{id} | Get doctor by ID |
+| POST   | /addDoctor       | Add new doctor |
 
-Method	URL	Description
-GET	/AllInsurance	Get all insurance
-GET	/InsuranceById/{id}	Get insurance by ID
-POST	/addInsurance	Add insurance
-🏢 Department
+---
 
-Method	URL	Description
-GET	/AllDepartment	Get all departments
-⚙️ Setup & Run
+### 📅 Appointment
 
-Prerequisites
+| Method | URL                   | Description |
+|--------|----------------------|-------------|
+| GET    | /AllAppointment      | Get all appointments |
+| GET    | /AppointmentById/{id}| Get appointment by ID |
+| POST   | /AddAppointment      | Book appointment |
 
-Java 17+
-PostgreSQL
-Maven
-1. Clone the repository
+---
 
-git clone https://github.com/ArpitTyagi0001/HospitalManagementSystem.git
-cd HospitalManagementSystem
-2. Configure Database
+### 🛡️ Insurance
 
+| Method | URL                  | Description |
+|--------|---------------------|-------------|
+| GET    | /AllInsurance       | Get all insurance |
+| GET    | /InsuranceById/{id} | Get insurance by ID |
+| POST   | /addInsurance       | Add insurance |
 
-📌 API Endpoints
+---
 
- 🔐 Auth
-| Method | URL | Description | Auth |
-|--------|-----|-------------|------|
-| POST | `/register` | Register new user | ❌ |
-| POST | `/login` | Login → returns JWT token | ❌ |
+### 🏢 Department
 
-👤 Patient
-| Method | URL | Description |
-|--------|-----|-------------|
-| GET | `/AllPatient` | Get all patients |
-| GET | `/PatientById/{id}` | Get patient by ID |
-| POST | `/addPatient` | Add new patient |
-| PUT | `/updatePatient/{id}` | Update patient |
-| DELETE | `/deletePatient/{id}` | Delete patient |
+| Method | URL            | Description |
+|--------|---------------|-------------|
+| GET    | /AllDepartment| Get all departments |
 
-‍⚕️ Doctor
-| Method | URL | Description |
-|--------|-----|-------------|
-| GET | `/doctors` | Get all doctors |
-| GET | `/DoctorById/{id}` | Get doctor by ID |
-| POST | `/addDoctor` | Add new doctor |
+---
 
-📅 Appointment
-| Method | URL | Description |
-|--------|-----|-------------|
-| GET | `/AllAppointment` | Get all appointments |
-| GET | `/AppointmentById/{id}` | Get appointment by ID |
-| POST | `/AddAppointment` | Book appointment |
+## ⚙️ Setup & Run
 
-🛡️ Insurance
-| Method | URL | Description |
-|--------|-----|-------------|
-| GET | `/AllInsurance` | Get all insurance |
-| GET | `/InsuranceById/{id}` | Get insurance by ID |
-| POST | `/addInsurance` | Add insurance |
+### Prerequisites
+- Java 17+
+- PostgreSQL
+- Maven
 
-🏢 Department
-| Method | URL | Description |
-|--------|-----|-------------|
-| GET | `/AllDepartment` | Get all departments |
+---
 
+### 1. Clone the repository
 
-⚙️ Setup & Run
-
-Prerequisites
-Java 17+
-PostgreSQL
-Maven
-
-1. Clone the repository
-bash
+```bash
 git clone https://github.com/ArpitTyagi0001/HospitalManagementSystem.git
 cd HospitalManagementSystem
 
-
- 2. Configure Database
-properties
-
-src/main/resources/application.properties
 spring.datasource.url=jdbc:postgresql://localhost:5432/hospitaldb
 spring.datasource.username=your_username
 spring.datasource.password=your_password
@@ -232,98 +170,36 @@ spring.jpa.hibernate.ddl-auto=create
 spring.sql.init.mode=always
 spring.jpa.defer-datasource-initialization=true
 
-3. Run the application
-
 mvn spring-boot:run
-4. Test APIs in Postman
-
-Step 1 — Register:
 
 POST http://localhost:8080/register
 {
-"username": "arpit",
-"password": "1234"
+  "username": "arpit",
+  "password": "1234"
 }
-Step 2 — Login → Get Token:
 
 POST http://localhost:8080/login
 {
-"username": "arpit",
-"password": "1234"
+  "username": "arpit",
+  "password": "1234"
 }
-Step 3 — Use Token:
 
 GET http://localhost:8080/AllPatient
-Headers → Authorization: Bearer <your_token>
-🔒 Security Flow
+Authorization: Bearer <your_token>
 
-Register → Save user with BCrypt encrypted password
+Register → Save user (BCrypt)
 ↓
-Login → Verify credentials → Generate JWT Token
+Login → Generate JWT
 ↓
-Use Token → Send in Authorization header
+Send JWT in request
 ↓
-JwtFilter → Validate token on every request
+JwtFilter validates token
 ↓
 Access granted ✅
 
 👨‍💻 Author
 
 Arpit Tyagi
-
-GitHub: @ArpitTyagi0001
-LinkedIn: arpit-tyagi0001
-Email: arpittyagi389@gmail.com
-
-
-
- 3. Run the application
-bash
-mvn spring-boot:run
-
-
-4. Test APIs in Postman
-
-Step 1 — Register:
-json
-POST http://localhost:8080/register
-{
-    "username": "arpit",
-    "password": "1234"
-}
-
-
-Step 2 — Login → Get Token:
-json
-POST http://localhost:8080/login
-{
-    "username": "arpit",
-    "password": "1234"
-}
-
-
-
-GET http://localhost:8080/AllPatient
-Headers → Authorization: Bearer <your_token>
- 
-🔒 Security Flow
-
-Register → Save user with BCrypt encrypted password
-    ↓
-Login → Verify credentials → Generate JWT Token
-    ↓
-Use Token → Send in Authorization header
-    ↓
-JwtFilter → Validate token on every request
-    ↓
-Access granted ✅
-
-
-
-
-👨‍💻 Author
-
-Arpit Tyagi
- GitHub: [@ArpitTyagi0001](https://github.com/ArpitTyagi0001)
- LinkedIn: [arpit-tyagi0001](https://linkedin.com/in/arpit-tyagi0001)
+GitHub: https://github.com/ArpitTyagi0001
+LinkedIn: https://linkedin.com/in/arpit-tyagi0001
 Email: arpittyagi389@gmail.com
