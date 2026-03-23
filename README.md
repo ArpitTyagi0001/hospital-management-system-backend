@@ -207,7 +207,7 @@ JwtFilter → Validate token on every request
 Access granted ✅
 ```
 
----
+----
 
 ## 👨‍💻 Author
 
