@@ -55,7 +55,7 @@ A production-grade **REST API** built with **Spring Boot**, featuring full CRUD 
 ✅ PostgreSQL with data.sql seeding
 
 
-📁 Project Structure
+## 📁 Project Structure
 
 src/main/java/com/example/HospitalMangement/
 ├── config/
@@ -98,7 +98,6 @@ src/main/java/com/example/HospitalMangement/
 │   ├── DepartmentRepository.java
 │   └── UsersRepository.java
 └── filter/
-└── JwtFilter.java
     └── JwtFilter.java
 
 
