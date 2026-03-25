@@ -13,7 +13,7 @@ A production-grade **REST API** built with **Spring Boot**, featuring full CRUD 
 | Database  | PostgreSQL                                   |
 | ORM       | JPA / Hibernate                              |
 | Mapping   | ModelMapper                                  |
-| Tools     | Postman, pgAdmin, Maven, Git                 |
+| Tools     | Postman, pgAdmin, Maven, Git.                |
 
 ---
 
