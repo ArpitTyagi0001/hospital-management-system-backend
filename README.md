@@ -27,7 +27,7 @@ A production-grade **REST API** built with **Spring Boot**, featuring full CRUD 
 - ✅ DTO Pattern with ModelMapper
 - ✅ BCrypt Password Encryption
 - ✅ Stateless Session (STATELESS)
-- ✅ PostgreSQL with data.sql seeding
+- ✅ PostgreSQL with data.sql seeding.
 
 ---
 
