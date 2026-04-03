@@ -163,7 +163,7 @@ Doctor   ──(ManyToMany)── Department
 
 ```bash
 git clone https://github.com/ArpitTyagi0001/HospitalManagementSystem.git
-cd HospitalManagementSystem
+cd HospitalManagementSystem.
 ```
 
 ### 2. Configure `application.properties`
