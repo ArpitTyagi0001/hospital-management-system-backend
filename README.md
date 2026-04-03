@@ -2,7 +2,6 @@
 
 A production-grade **REST API** built with **Spring Boot**, featuring full CRUD operations, JPA entity relationships, and secure **JWT + OAuth2** authentication.
 
----
 
 ## 🚀 Tech Stack
 
@@ -15,7 +14,6 @@ A production-grade **REST API** built with **Spring Boot**, featuring full CRUD 
 | Mapping   | ModelMapper                                  |
 | Tools     | Postman, pgAdmin, Maven, Git.                |
 
----
 
 ## ✨ Features
 
@@ -29,11 +27,9 @@ A production-grade **REST API** built with **Spring Boot**, featuring full CRUD 
 - ✅ Stateless Session (STATELESS)
 - ✅ PostgreSQL with data.sql seeding.
 
----
 
 ## 📁 Project Structure
 
-```
 src/main/java/com/example/HospitalMangement/
 ├── config/
 │   ├── AppConfig.java              → ModelMapper Bean
@@ -76,20 +72,15 @@ src/main/java/com/example/HospitalMangement/
 │   └── UsersRepository.java
 └── filter/
     └── JwtFilter.java
-```
 
----
 
 ## 🔗 Entity Relationships
 
-```
 Patient  ──(OneToOne)──►  Insurance
 Patient  ──(OneToMany)──► Appointment
 Doctor   ──(OneToMany)──► Appointment
 Doctor   ──(ManyToMany)── Department
-```
 
----
 
 ## 📌 API Endpoints
 
@@ -100,7 +91,7 @@ Doctor   ──(ManyToMany)── Department
 | POST   | /register  | Register new user   | ❌   |
 | POST   | /login     | Login → returns JWT | ❌   |
 
----
+
 
 ### 👤 Patient
 
@@ -112,7 +103,7 @@ Doctor   ──(ManyToMany)── Department
 | PUT    | /updatePatient/{id}  | Update patient     |
 | DELETE | /deletePatient/{id}  | Delete patient     |
 
----
+
 
 ### 👨‍⚕️ Doctor
 
@@ -122,8 +113,6 @@ Doctor   ──(ManyToMany)── Department
 | GET    | /DoctorById/{id}  | Get doctor by ID  |
 | POST   | /addDoctor        | Add new doctor    |
 
----
-
 ### 📅 Appointment
 
 | Method | URL                    | Description             |
@@ -132,7 +121,6 @@ Doctor   ──(ManyToMany)── Department
 | GET    | /AppointmentById/{id}  | Get appointment by ID   |
 | POST   | /AddAppointment        | Book appointment        |
 
----
 
 ### 🛡️ Insurance
 
@@ -142,7 +130,6 @@ Doctor   ──(ManyToMany)── Department
 | GET    | /InsuranceById/{id}   | Get insurance by ID  |
 | POST   | /addInsurance         | Add insurance        |
 
----
 
 ### 🏢 Department
 
@@ -150,7 +137,6 @@ Doctor   ──(ManyToMany)── Department
 |--------|-----------------|----------------------|
 | GET    | /AllDepartment  | Get all departments  |
 
----
 
 ## ⚙️ Setup & Run
 
@@ -161,34 +147,33 @@ Doctor   ──(ManyToMany)── Department
 
 ### 1. Clone the repository
 
-```bash
+bash
 git clone https://github.com/ArpitTyagi0001/HospitalManagementSystem.git
 cd HospitalManagementSystem.
-```
 
-### 2. Configure `application.properties`
 
-```properties
+### 2. Configure application.properties
+
+properties
 spring.datasource.url=jdbc:postgresql://localhost:5432/hospitaldb
 spring.datasource.username=your_username
 spring.datasource.password=your_password
 spring.jpa.hibernate.ddl-auto=create
 spring.sql.init.mode=always
 spring.jpa.defer-datasource-initialization=true
-```
+
 
 ### 3. Run the application
 
-```bash
+bash
 mvn spring-boot:run
-```
 
----
+
 
 ## 🔑 Usage Examples
 
 ### Register
-```http
+http
 POST http://localhost:8080/register
 Content-Type: application/json
 
@@ -196,10 +181,9 @@ Content-Type: application/json
   "username": "arpit",
   "password": "1234"
 }
-```
 
 ### Login
-```http
+http
 POST http://localhost:8080/login
 Content-Type: application/json
 
@@ -207,19 +191,17 @@ Content-Type: application/json
   "username": "arpit",
   "password": "1234"
 }
-```
+
 
 ### Authenticated Request
-```http
+http
 GET http://localhost:8080/AllPatient
 Authorization: Bearer <your_token>
-```
 
----
 
 ## 🔐 Auth Flow
 
-```
+
 Register → Save user (BCrypt)
      ↓
 Login → Generate JWT
@@ -229,13 +211,11 @@ Send JWT in request header
 JwtFilter validates token
      ↓
 Access granted ✅
-```
 
----
 
 ## 👨‍💻 Author
 
-**Arpit Tyagi**
+Arpit Tyagi
 
 - 🐙 GitHub: [@ArpitTyagi0001](https://github.com/ArpitTyagi0001)
 - 💼 LinkedIn: [arpit-tyagi0001](https://linkedin.com/in/arpit-tyagi0001)
