@@ -210,7 +210,7 @@ Send JWT in request header
      ↓
 JwtFilter validates token
      ↓
-Access granted ✅
+Access granted. ✅
 
 
 ## 👨‍💻 Author
