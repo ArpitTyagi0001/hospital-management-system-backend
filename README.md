@@ -202,7 +202,7 @@ Authorization: Bearer <your_token>
 ## 🔐 Auth Flow
 
 
-Register → Save user (BCrypt).
+Register → Save user (BCrypt)..
      ↓
 Login → Generate JWT
      ↓
