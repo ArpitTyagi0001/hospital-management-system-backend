@@ -1,160 +1,77 @@
-# 🏥 Hospital Management System
+# Hospital Management System
 
-A production-grade **REST API** built with **Spring Boot**, featuring full CRUD operations, JPA entity relationships, and secure **JWT + OAuth2** authentication.
+A REST API built with Spring Boot for managing hospital operations — patients, doctors, appointments, insurance, and departments — with secure JWT and OAuth2 authentication.
 
+## Tech Stack
 
-## 🚀 Tech Stack
+- Backend: Java, Spring Boot
+- Security: Spring Security, JWT, OAuth2 (Google/GitHub)
+- Database: PostgreSQL
+- ORM: JPA / Hibernate
+- Mapping: ModelMapper
+- Tools: Postman, pgAdmin, Maven, Git
 
-| Layer     | Technology                                   |
-|-----------|----------------------------------------------|
-| Backend   | Java, Spring Boot                            |
-| Security  | Spring Security, JWT, OAuth2 (Google/GitHub) |
-| Database  | PostgreSQL                                   |
-| ORM       | JPA / Hibernate                              |
-| Mapping   | ModelMapper                                  |
-| Tools     | Postman, pgAdmin, Maven, Git.                |
+## Features
 
+- JWT authentication — register, login, token-based access
+- OAuth2 social login with Google and GitHub
+- Role-based access control (ADMIN and USER roles)
+- Full CRUD for Patient, Doctor, Appointment, Insurance, and Department
+- Entity relationships — OneToOne, ManyToOne, ManyToMany
+- DTO pattern using ModelMapper
+- BCrypt password encryption
+- Stateless session management
+- PostgreSQL with data.sql seeding
 
-## ✨ Features
+## Entity Relationships
 
-- ✅ JWT Authentication — Register, Login, Token-based access
-- ✅ OAuth2 Social Login — Google & GitHub
-- ✅ Role-Based Access Control — ADMIN & USER roles
-- ✅ Full CRUD — Patient, Doctor, Appointment, Insurance, Department
-- ✅ Entity Relationships — OneToOne, ManyToOne, ManyToMany
-- ✅ DTO Pattern with ModelMapper
-- ✅ BCrypt Password Encryption
-- ✅ Stateless Session (STATELESS)
-- ✅ PostgreSQL with data.sql seeding.
+- Patient to Insurance — OneToOne
+- Patient to Appointment — OneToMany
+- Doctor to Appointment — OneToMany
+- Doctor to Department — ManyToMany
 
+## API Endpoints
 
-## 📁 Project Structure
+Auth
+- POST /register — register a new user
+- POST /login — login and get JWT
 
-src/main/java/com/example/HospitalMangement/
-├── config/
-│   ├── AppConfig.java              → ModelMapper Bean
-│   └── SecurityConfig.java         → JWT + Security config
-├── controller/
-│   ├── PatientController.java
-│   ├── DoctorController.java
-│   ├── AppointmentController.java
-│   ├── InsuranceController.java
-│   ├── DepartmentController.java
-│   └── UsersController.java
-├── service/
-│   ├── PatientService.java
-│   ├── DoctorService.java
-│   ├── AppointmentService.java
-│   ├── InsuranceService.java
-│   ├── DepartmentService.java
-│   ├── UserService.java
-│   ├── JwtService.java
-│   └── MyUserDetailsService.java
-├── entity/
-│   ├── Patient.java
-│   ├── Doctor.java
-│   ├── Appointment.java
-│   ├── Insurance.java
-│   ├── Department.java
-│   └── Users.java
-├── dto/
-│   ├── PatientDto.java
-│   ├── DoctorDto.java
-│   ├── AppointmentDto.java
-│   ├── InsuranceDto.java
-│   └── DepartmentDto.java
-├── repository/
-│   ├── PatientRepository.java
-│   ├── DoctorRepository.java
-│   ├── AppointmentRepository.java
-│   ├── InsuranceRepository.java
-│   ├── DepartmentRepository.java
-│   └── UsersRepository.java
-└── filter/
-    └── JwtFilter.java
+Patient
+- GET /AllPatient — get all patients
+- GET /PatientById/{id} — get patient by ID
+- POST /addPatient — add new patient
+- PUT /updatePatient/{id} — update patient
+- DELETE /deletePatient/{id} — delete patient
 
+Doctor
+- GET /doctors — get all doctors
+- GET /DoctorById/{id} — get doctor by ID
+- POST /addDoctor — add new doctor
 
-## 🔗 Entity Relationships
+Appointment
+- GET /AllAppointment — get all appointments
+- GET /AppointmentById/{id} — get appointment by ID
+- POST /AddAppointment — book appointment
 
-Patient  ──(OneToOne)──►  Insurance
-Patient  ──(OneToMany)──► Appointment
-Doctor   ──(OneToMany)──► Appointment
-Doctor   ──(ManyToMany)── Department
+Insurance
+- GET /AllInsurance — get all insurance records
+- GET /InsuranceById/{id} — get insurance by ID
+- POST /addInsurance — add insurance
 
+Department
+- GET /AllDepartment — get all departments
 
-## 📌 API Endpoints
+## Setup and Run
 
-### 🔐 Auth
+Prerequisites: Java 17+, PostgreSQL, Maven
 
-| Method | URL        | Description         | Auth |
-|--------|------------|---------------------|------|
-| POST   | /register  | Register new user   | ❌   |
-| POST   | /login     | Login → returns JWT | ❌   |
+1. Clone the repository
 
-
-
-### 👤 Patient
-
-| Method | URL                  | Description        |
-|--------|----------------------|--------------------|
-| GET    | /AllPatient          | Get all patients   |
-| GET    | /PatientById/{id}    | Get patient by ID  |
-| POST   | /addPatient          | Add new patient    |
-| PUT    | /updatePatient/{id}  | Update patient     |
-| DELETE | /deletePatient/{id}  | Delete patient     |
-
-
-
-### 👨‍⚕️ Doctor
-
-| Method | URL               | Description       |
-|--------|-------------------|-------------------|
-| GET    | /doctors          | Get all doctors   |
-| GET    | /DoctorById/{id}  | Get doctor by ID  |
-| POST   | /addDoctor        | Add new doctor    |
-
-### 📅 Appointment
-
-| Method | URL                    | Description             |
-|--------|------------------------|-------------------------|
-| GET    | /AllAppointment        | Get all appointments    |
-| GET    | /AppointmentById/{id}  | Get appointment by ID   |
-| POST   | /AddAppointment        | Book appointment        |
-
-
-### 🛡️ Insurance
-
-| Method | URL                   | Description          |
-|--------|-----------------------|----------------------|
-| GET    | /AllInsurance         | Get all insurance    |
-| GET    | /InsuranceById/{id}   | Get insurance by ID  |
-| POST   | /addInsurance         | Add insurance        |
-
-
-### 🏢 Department
-
-| Method | URL             | Description          |
-|--------|-----------------|----------------------|
-| GET    | /AllDepartment  | Get all departments  |
-
-
-## ⚙️ Setup & Run
-
-### Prerequisites
-- Java 17+
-- PostgreSQL
-- Maven
-
-### 1. Clone the repository
-
-bash
 git clone https://github.com/ArpitTyagi0001/HospitalManagementSystem.git
-cd HospitalManagementSystem.
+cd HospitalManagementSystem
 
+2. Configure application.properties
 
-### 2. Configure application.properties
-
-properties
 spring.datasource.url=jdbc:postgresql://localhost:5432/hospitaldb
 spring.datasource.username=your_username
 spring.datasource.password=your_password
@@ -162,18 +79,14 @@ spring.jpa.hibernate.ddl-auto=create
 spring.sql.init.mode=always
 spring.jpa.defer-datasource-initialization=true
 
+3. Run the application
 
-### 3. Run the application
-
-bash
 mvn spring-boot:run
 
+## Usage Example
 
+Register
 
-## 🔑 Usage Examples
-
-### Register
-http
 POST http://localhost:8080/register
 Content-Type: application/json
 
@@ -182,8 +95,8 @@ Content-Type: application/json
   "password": "1234"
 }
 
-### Login
-http
+Login
+
 POST http://localhost:8080/login
 Content-Type: application/json
 
@@ -192,31 +105,18 @@ Content-Type: application/json
   "password": "1234"
 }
 
+Authenticated request
 
-### Authenticated Request
-http
 GET http://localhost:8080/AllPatient
 Authorization: Bearer <your_token>
 
+## Auth Flow
 
-## 🔐 Auth Flow
+Register saves the user with BCrypt-hashed password. Login generates a JWT. The token is sent in the request header on future calls. JwtFilter validates the token before granting access.
 
-
-Register → Save user (BCrypt)..
-     ↓
-Login → Generate JWT
-     ↓
-Send JWT in request header
-     ↓
-JwtFilter validates token
-     ↓
-Access granted ✅
-
-
-## 👨‍💻 Author
+## Author
 
 Arpit Tyagi
-
-- 🐙 GitHub: [@ArpitTyagi0001](https://github.com/ArpitTyagi0001)
-- 💼 LinkedIn: [arpit-tyagi0001](https://linkedin.com/in/arpit-tyagi0001)
-- 📧 Email: arpittyagi389@gmail.com
+GitHub: https://github.com/ArpitTyagi0001
+LinkedIn: https://www.linkedin.com/in/arpit-tyagi0001/
+Email: arpittyagi389@gmail.com
